@@ -6,7 +6,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: hello-world.info
+    - host: microservices.info
       http:
         paths:
           - path: /employee
