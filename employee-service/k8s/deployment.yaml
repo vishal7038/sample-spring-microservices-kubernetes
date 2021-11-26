@@ -15,26 +15,26 @@ spec:
         app: employee
     spec:
       containers:
-      - name: employee
-        image: piomin/employee
-        ports:
-        - containerPort: 8080
-        env:
-        - name: MONGO_DATABASE
-          valueFrom:
-            configMapKeyRef:
-              name: mongodb
-              key: database-name
-        - name: MONGO_USERNAME
-          valueFrom:
-            secretKeyRef:
-              name: mongodb
-              key: database-user
-        - name: MONGO_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: mongodb
-              key: database-password
+        - name: employee
+          image: vishalfichadiya/employeev1.0
+          ports:
+            - containerPort: 8080
+          env:
+            - name: MONGO_DATABASE
+              valueFrom:
+                configMapKeyRef:
+                  name: mongodb
+                  key: database-name
+            - name: MONGO_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb
+                  key: database-user
+            - name: MONGO_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb
+                  key: database-password
 ---
 apiVersion: v1
 kind: Service
@@ -45,8 +45,8 @@ metadata:
     spring-boot: "true"
 spec:
   ports:
-  - port: 8080
-    protocol: TCP
+    - port: 8080
+      protocol: TCP
   selector:
     app: employee
   type: ClusterIP

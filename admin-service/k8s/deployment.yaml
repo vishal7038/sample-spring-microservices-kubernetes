@@ -12,10 +12,10 @@ spec:
         app: admin
     spec:
       containers:
-      - name: admin
-        image: piomin/admin
-        ports:
-        - containerPort: 8080
+        - name: admin
+          image: vishalfichadiya/adminv1.0
+          ports:
+            - containerPort: 8080
 ---
 kind: ConfigMap
 apiVersion: v1
@@ -40,5 +40,5 @@ spec:
   selector:
     app: admin
   ports:
-  - port: 8080
-    targetPort: 8080
+    - port: 8080
+      targetPort: 8080
